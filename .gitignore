@@ -25,3 +25,5 @@ hs_err_pid*
 
 
 **/autoPush.py  
+**/out[0-2]
+**/test[0-2]
