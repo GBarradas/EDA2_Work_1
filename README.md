@@ -36,5 +36,5 @@ GGRRRR
 GYYRRR  
 GGRRRR  
 ## Output example 2  
-20482
+2048
 

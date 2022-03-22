@@ -1,57 +1,65 @@
 import java.io.*;
 class Main{
-    static int[] legoSize = {1,2,3,4,6,8,10,12,16};
+    static int[] bricks = {1,2,3,4,6,8,10,12,16};
     public static void main(String[] Args) throws IOException {
-        //System.out.println(calc(6));
+        /*----------------------------------------------------*/ 
+        /*               Leitura dos Dados                    */ 
+        /*----------------------------------------------------*/ 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] aux = br.readLine().split(" ");
-        int x = Integer.parseInt(aux[0]);
-        int y = Integer.parseInt(aux[1]);
+        int x = Integer.parseInt(aux[0]);   //linhas
+        int y = Integer.parseInt(aux[1]);   //colunas
         
         
-        char[][] board = new char[x][y];
-        String line;
-        
-        for(int i=0;i<x;++i){
+        char[][] board = new char[x][y];    //mosaico
+        String line;                        //auxia a ler o mosaico
+        for(int i=0;i<x;++i){               //le o mosaico
             line=br.readLine();
             for(int j=0;j<y;++j){
                 board[i][j]=line.charAt(j);
             }
         }
+        /*----------------------------------------------------*/ 
+        /*               Analise dos Dados                    */ 
+        /*----------------------------------------------------*/
 
-        long result=1;
+        long result=1;      
         char currentColor;
-        int numberSequense=1;
-        char charAtPos;
-        for(int i=0;i<x;++i){
-            charAtPos=board[i][0];
-            currentColor=charAtPos;
-            if(charAtPos!='.'){
-                numberSequense=1;
+        int sequenceSize=1;
+        char atPos;
+        for(int i=0;i<x;++i){       
+            atPos=board[i][0];
+            currentColor=atPos;
+            if(atPos!='.'){         // caso a primeira posição da linha não seja 1 ponto
+                sequenceSize=1;
             }
             for(int j=1;j<y;++j){
-                charAtPos=board[i][j];
-                if(charAtPos=='.'){
-                    if(currentColor!=charAtPos){
-                        result*=calc(numberSequense);
-                        numberSequense=0;
+                atPos=board[i][j];
+                if(atPos=='.'){     //se for um ponto
+                    if(currentColor!=atPos){  // e se vier depois de uma sequencia
+                        result*=possibleCombinations(sequenceSize);
+                        sequenceSize=0;
                     }
                 }
-                else if(j==y-1){
-                    if(charAtPos==currentColor){
-                        result*=calc(++numberSequense);
-                        numberSequense=1;
+                else if(j==y-1){        // caso estejamos a analisar a ultima posição da linha
+                    if(atPos==currentColor){    //caso a ultima posição pertença á sequencia
+                        result*=possibleCombinations(++sequenceSize);
+                        sequenceSize=1;
+                    }
+                    else{       
+                        result*=possibleCombinations(sequenceSize);
+                        sequenceSize=1;
                     }
                 }
-                else{
-                    if(charAtPos==currentColor){
-                        ++numberSequense;
+                else{   
+                    if(atPos==currentColor){    // caso a cor em questão pertença á sequencia
+                        ++sequenceSize;
                         
                     }
-                    else{
-                        result*=calc(numberSequense);
-                        currentColor=charAtPos;
-                        numberSequense=1;
+                    else{               
+                        result*=possibleCombinations(sequenceSize);
+                        currentColor=atPos;
+                        sequenceSize=1;
                     }
                 }
                 
@@ -66,17 +74,18 @@ class Main{
         
         
     }
-    public static long calc(int size){
-        long[] numberCombinations = new long[size+1];
-        numberCombinations[0]=1;
-        for(int i = 1; i<=size;++i){
-            for(int j=0;j<legoSize.length;++j){
-                if(legoSize[j]<=i){
-                    numberCombinations[i]+=numberCombinations[i-legoSize[j]];
+
+    public static long possibleCombinations(int sequenceSize){
+        long[] numOfCombinations = new long[sequenceSize+1];
+        numOfCombinations[0]=1;         // Caso base
+        for(int i = 1; i<=sequenceSize;++i){        
+            for(int j=0;j<bricks.length;++j){       // analisar para cada peça
+                if(bricks[j]<=i){               // verfica se podemos usar a peça e soma ao resultado
+                    numOfCombinations[i]+=numOfCombinations[i-bricks[j]];  
                 }
             }
         }
-        return numberCombinations[size];
+        return numOfCombinations[sequenceSize];
     }
 
     
