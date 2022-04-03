@@ -23,18 +23,26 @@ The output should consist of a single integerWindicating the number of ways in w
 - 1≤R, C≤1 000 &emsp;Number of rows and columns of the mosaic  
 - 1≤W <263  &emsp;&emsp;&nbsp;&nbsp;Number of different ways to build the mosaic  
 ## Input example 1  
+``` 
 4 4  
 ....  
 YYBB  
 YBBB  
 ....  
+```  
 ## Output example 1  
-16  
+```
+16 
+``` 
 ##  Input example 2  
+```
 3 6  
 GGRRRR  
 GYYRRR  
 GGRRRR  
+```
 ## Output example 2  
+```
 2048
+```  
 
