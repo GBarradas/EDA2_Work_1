@@ -1,13 +1,13 @@
 # Problem: Mosaics  
 Building mosaics is an art dedicated to the construction of images by assembling small pieces of somematerial.  Lego pieces are all about building things by assembling small pieces, and therefore theypresent the flexibility and versatility to create wonderful mosaics.  
 &emsp;You have been commissioned to build a large lego mosaic.  The basic idea is to use a lego plateand on the top of it attach some lego bricks.  Each lego stud is like a pixel in the image.  If we usedtext to represent a mosaic, with ‘.’  representing a stud without a brick, ‘R’ for a red brick, ‘Y’ for ayellow brick and ‘G’ for a green brick, then the mosaic of the image below would be represented by:  
-<img src="map.png"> 
-<img src="legoMIUP2011.png" align="right" >   
-<img src="lego_escada.png" align="right">  
+<img src="rel/imagens/map.png"> 
+<img src="rel/imagens/legoMIUP2011.png" align="right" >   
+<img src="rel/imagens/lego_escada.png" align="right">  
 &emsp;For the construction of the mosaic you have available a verylarge set of1×Nbricks.  In particular, for the purposes of themosaic, you can assume you have an infinite number of 9 differ-ent types of bricks (in any needed color).  These are1×1,1×2,1×3,1×4,1×6,1×8,1×10,1×12and1×16bricks,  and aredepicted in the figure on the right.  
 &emsp;For  aesthetic  reasons,  you  only  want  to  use  the  bricks  inthe horizontal positions, that is, parallel to the bottom of theplate. This means that when seen from the top, as in the textualrepresentation above, the width of the bricks is variable, but theheight is always1.  
 &emsp;When  you  were  starting  the  construction,  you  noticed  that  even  with  those  constraints,  therewere several different ways of building the mosaic.  For example, the mosaic below has 16 differentways of using pieces to obtain the exact same image (with ‘B’ meaning a blue brick):  
-<img src="ex1.png">  
+<img src="rel/imagens/ex1.png">  
 For a general case, can you tell in how many different ways you could build the desired mosaic?  
 
 ## Task   
