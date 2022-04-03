@@ -28,3 +28,4 @@ hs_err_pid*
 **/out[0-2]
 **/test[0-2]
 **/Grilo/
+**/rel/*.docx
